@@ -2,11 +2,11 @@ Source: efc-jruby
 Section: efficientcloud
 Priority: extra
 Maintainer: EfficientCloud Technical Staff <support@efficientcloud.com>
-Build-Depends: debhelper (>= 7.0.50~), sun-java6-jdk
+Build-Depends: debhelper (>= 7.0.50~), openjdk-6-jre-headless
 Standards-Version: 3.9.2
 
 Package: efc-runtime-jruby
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, sun-java6-jdk
+Depends: ${shlibs:Depends}, ${misc:Depends}, openjdk-6-jre-headless
 Description: JRuby Runtime
   JRuby.
