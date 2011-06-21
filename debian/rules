@@ -31,6 +31,7 @@ override_dh_auto_install:
 	i386-FreeBSD i386-OpenBSD i386-Windows ppc-AIX sparc-SunOS x86_64-FreeBSD x86_64-OpenBSD x86_64-Windows; do \
 	  rm -r jruby/lib/native/$$i; \
 	done
+	patch -p0 < mkmf.patch
 	# put bundler into the box
 	PATH=$(CURDIR)/jruby/bin:$(PATH) jruby19 -S gem install bundle
 
