@@ -1,2 +1,3 @@
 jruby/* /opt/efc/jruby/
+efcjruby /usr/bin/
 debian/efc-runtime-jruby-profile.sh /etc/profile.d/

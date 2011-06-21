@@ -1,0 +1,4 @@
+#!/bin/sh
+PATH=/opt/efc/jruby/bin:$PATH
+export PATH
+exec jruby --1.9 $@
