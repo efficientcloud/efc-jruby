@@ -1,4 +1,4 @@
 #!/bin/sh
 PATH=/opt/efc/jruby/bin:$PATH
 export PATH
-exec jruby --1.9 $@
+exec jruby -J-Djruby.launch.inproc=false --1.9 $@
