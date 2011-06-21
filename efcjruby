@@ -1,4 +1,6 @@
 #!/bin/sh
 PATH=/opt/efc/jruby/bin:$PATH
 export PATH
+JRUBY_OPT="--1.9"
+export JRUBY_OPT
 exec jruby --headless --manage --server -J-Djruby.launch.inproc=false --1.9 $@
