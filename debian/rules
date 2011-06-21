@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+PRODUCT=efc-jruby
+PRODUCT_ROOT=/opt/efc/jruby
+DESTPATH=$(CURDIR)/debian/$(PRODUCT)$(PRODUCT_ROOT)
+
+V=1.6.2
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+override_dh_clean:
+	dh_testdir
+	rm -rf debian/$(PRODUCT) jruby-$(V) jruby
+	dh_auto_clean
+	dh_clean
+
+override_dh_auto_install:
+	tar xfz jruby-bin-$(V).tar.gz
+	mv jruby-$(V) jruby
+	rm -f jruby/bin/*.bat
+	rm -f jruby/bin/*.exe
+	rm -f jruby/bin/*.dll
+	rm -f jruby/bin/*.sh
+	rm -r jruby/samples
+	rm -r jruby/tool
+	for i in Darwin i386-Linux i386-SunOS ppc-Linux sparcv9-SunOS x86_64-SunOS \
+	i386-FreeBSD i386-OpenBSD i386-Windows ppc-AIX sparc-SunOS x86_64-FreeBSD x86_64-OpenBSD x86_64-Windows; do \
+	  rm -r jruby/lib/native/$$i; \
+	done
+	# put bundler into the box
+	PATH=$(CURDIR)/jruby/bin:$(PATH) jruby --1.9 -S gem install bundle
+
+%:
+	dh $@
+
