@@ -25,12 +25,14 @@ override_dh_auto_install:
 	rm -f jruby/bin/*.sh
 	rm -r jruby/samples
 	rm -r jruby/tool
+	cp jruby19 jruby/bin/
+	chmod a+rx jruby/bin/jruby19
 	for i in Darwin i386-Linux i386-SunOS ppc-Linux sparcv9-SunOS x86_64-SunOS \
 	i386-FreeBSD i386-OpenBSD i386-Windows ppc-AIX sparc-SunOS x86_64-FreeBSD x86_64-OpenBSD x86_64-Windows; do \
 	  rm -r jruby/lib/native/$$i; \
 	done
 	# put bundler into the box
-	PATH=$(CURDIR)/jruby/bin:$(PATH) jruby --1.9 -S gem install bundle
+	PATH=$(CURDIR)/jruby/bin:$(PATH) jruby19 -S gem install bundle
 
 %:
 	dh $@
