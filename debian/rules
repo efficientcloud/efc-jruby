@@ -5,7 +5,7 @@ PRODUCT=efc-jruby
 PRODUCT_ROOT=/opt/efc/jruby
 DESTPATH=$(CURDIR)/debian/$(PRODUCT)$(PRODUCT_ROOT)
 
-V=1.6.2
+V=1.6.3.dev
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
